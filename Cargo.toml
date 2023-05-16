@@ -1,7 +1,10 @@
 [package]
 name = "rocksdb_sq"
+description = "wrapper RocksDB wrapper for Rust, adding stack and queue functionalities"
+repository = "https://github.com/gdnathan/rocksdb_sq.rs"
 version = "0.1.0"
 edition = "2021"
+license = "Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
