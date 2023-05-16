@@ -24,7 +24,7 @@ use rocksdb_sq::{StackDB, QueueDB};
 ### StackDB
 
 ```rust
-let db = StackDB::new("/path/to/db")?;
+let db = RocksSQ::new("/path/to/db")?;
 db.push_to_stack("my_stack", b"item1")?;
 db.push_to_stack("my_stack", b"item2")?;
 let item = db.pop_stack("my_stack")?;
@@ -33,7 +33,7 @@ let item = db.pop_stack("my_stack")?;
 ### QueueDB
 
 ```rust
-let db = QueueDB::new("/path/to/db")?;
+let db = RocksSQ::new("/path/to/db")?;
 db.push_to_queue("my_queue", b"item1")?;
 db.push_to_queue("my_queue", b"item2")?;
 let item = db.pop_queue("my_queue")?;
