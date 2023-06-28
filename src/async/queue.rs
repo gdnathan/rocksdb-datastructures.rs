@@ -1,15 +1,18 @@
 use byteorder::{BigEndian, ByteOrder};
 use rocksdb::{Error, DB};
 
+use std::sync::Arc;
+use tokio::sync::Mutex;
+
 pub struct Queue {
-    db: DB,
+    db: Arc<Mutex<DB>>,
     name: String,
 }
 
 impl Queue {
     pub fn push(&self, value: &[u8]) -> Result<(), Error> {
         let tail_key = format!("{}_tail", self.name);
-        let tail = match self.db.get(tail_key.clone())? {
+        let tail = match self.db.await.get(tail_key.clone())? {
             Some(tail_bytes) => BigEndian::read_u64(&tail_bytes) + 1,
             None => 1,
         };
