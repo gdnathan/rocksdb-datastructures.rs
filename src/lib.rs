@@ -7,6 +7,7 @@ use tokio::sync::Mutex;
 
 pub use self::{queue::Queue, stack::Stack};
 
+#[derive(Clone)]
 pub struct DB {
     db: Arc<Mutex<RocksDB>>,
 }
