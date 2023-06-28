@@ -5,7 +5,7 @@ use rocksdb::{Error, DB as RocksDB};
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
-use self::{queue::Queue, stack::Stack};
+pub use self::{queue::Queue, stack::Stack};
 
 pub struct DB {
     db: Arc<Mutex<RocksDB>>,
